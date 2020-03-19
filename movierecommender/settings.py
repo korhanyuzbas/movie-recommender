@@ -92,7 +92,7 @@ DATABASES = {
     }
 }
 
-db_from_env = dj_database_url.config()
+db_from_env = dj_database_url.config('NEW_DATABASE_URL')
 DATABASES['default'].update(db_from_env)
 
 CACHES = {
