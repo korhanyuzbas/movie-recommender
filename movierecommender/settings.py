@@ -155,4 +155,4 @@ GRAPHENE = {
     'SCHEMA': 'movierecommender.graphene_schema.schema'
 }
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
