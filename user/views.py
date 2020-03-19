@@ -72,11 +72,11 @@ class UserSuggestionView(APIView):
         if not cached_suggestions:
             # Do not run task if user not following anything
             if not user.moviefollow_set.exists() or user.artistfollow_set.exists() or user.genrefollow_set.exists():
-                return Response({'message': 'no follow, please follow something'}, status=status.HTTP_200_OK)
+                return Response({'message': 'You are not following any movie/star/genre'}, status=status.HTTP_200_OK)
 
             task_id = process_suggest_for_user.apply_async(kwargs={'user_id': user.id})
             CeleryResult.objects.create(user_id=user.id, task_id=task_id, status=CeleryResult.PENDING)
-            return Response({'message': 'is in progress'}, status=status.HTTP_200_OK)
+            return Response({'message': 'Your request is still in progress'}, status=status.HTTP_200_OK)
 
         qs = Movie.objects.filter(dataset_id__in=cached_suggestions)
         qs = sorted(qs, key=lambda x: cached_suggestions.index(x.dataset_id))

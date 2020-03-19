@@ -20,7 +20,7 @@ class MovieViewSet(ListAPIView, RetrieveAPIView, GenericViewSet):
         instance = Movie.objects.filter(id=pk).first()
         if instance:
             MovieFollow.objects.get_or_create(user=request.user, movie=instance)
-            return Response({"status": "OK"})
+            return Response(status=status.HTTP_204_NO_CONTENT)
         else:
             raise ValidationError('Movie not found')
 
@@ -43,7 +43,7 @@ class GenreViewSet(ListAPIView, RetrieveAPIView, GenericViewSet):
         movie = Genre.objects.filter(id=pk).first()
         if movie:
             GenreFollow.objects.get_or_create(user=request.user, genre=movie)
-            return Response({"status": "OK"})
+            return Response(status=status.HTTP_204_NO_CONTENT)
         else:
             raise ValidationError('Movie not found')
 
@@ -66,7 +66,7 @@ class ArtistViewSet(ListAPIView, RetrieveAPIView, GenericViewSet):
         instance = Artist.objects.filter(id=pk).first()
         if instance:
             ArtistFollow.objects.get_or_create(user=request.user, artist=instance)
-            return Response({"status": "OK"})
+            return Response(status=status.HTTP_204_NO_CONTENT)
         else:
             raise ValidationError('Movie not found')
 
