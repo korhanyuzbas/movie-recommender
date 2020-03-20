@@ -10,7 +10,7 @@
 - Suggestion runs on Celery, it'd take 1-2 minutes to complete (runs every time user follow/unfollow movie, star or genre)
 
 # Caveats
-- Heroku's free Postgresql and Redis servers are not suitable for this project, thus i'm using external services, which may cause performance issues
+- Heroku's free Postgresql and Redis servers are not suitable for this project, thus i'm using external services, which may cause performance issues including processing suggestion system
 # TODO
 - Suggestion score multipliers hardcoded, can be added to settings or Config model
 
