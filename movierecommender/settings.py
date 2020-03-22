@@ -98,7 +98,7 @@ DATABASES['default'].update(db_from_env)
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://134.122.83.34:6379/1",
+        "LOCATION": os.environ.get("REDIS_CONNECTION_URL"),
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
