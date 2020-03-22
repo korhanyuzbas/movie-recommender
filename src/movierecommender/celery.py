@@ -4,7 +4,7 @@ from django.conf import settings
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'movierecommender.settings')
 
-app = Celery('movierecommender', broker=os.environ.get("REDIS_CONNECTION_URL"))
+app = Celery('movierecommender', broker="redis://redis:6379/0")
 
 app.config_from_object('django.conf:settings')
 app.autodiscover_tasks(lambda: settings.INSTALLED_APPS)

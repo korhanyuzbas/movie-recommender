@@ -84,21 +84,19 @@ WSGI_APPLICATION = 'movierecommender.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'movie_recommend',
+        'NAME': 'movierecommend',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
-        'HOST': 'localhost',
+        'HOST': 'postgres',
         'PORT': 5432
     }
 }
 
-db_from_env = dj_database_url.config('NEW_DATABASE_URL')
-DATABASES['default'].update(db_from_env)
 
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": os.environ.get("REDIS_CONNECTION_URL"),
+        "LOCATION": "redis://redis:6379/1",
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
