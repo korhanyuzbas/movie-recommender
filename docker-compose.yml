@@ -14,6 +14,9 @@ services:
     volumes:
     - data:/var/lib/postgresql/data
 
+  volumes:
+    data: {}
+
   api:
     build:
       context: .
