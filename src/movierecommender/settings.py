@@ -26,7 +26,7 @@ SECRET_KEY = 'ebph*!6jb8!kxw^s0=e2=(vo46v@mqf-e*ak#v+ksj*kjud)c%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['movie-recommender-korhanyuzbas.herokuapp.com', '134.122.83.34:8082']
+ALLOWED_HOSTS = ['movie-recommender-korhanyuzbas.herokuapp.com', '134.122.83.34']
 
 # Application definition
 
