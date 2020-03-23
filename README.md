@@ -1,9 +1,9 @@
 # Instructions
-- Live demo is available at http://http://134.122.83.34:8082
+- Live demo is available at http://134.122.83.34:8082
 
-- Admin panel at http://http://134.122.83.34:8082/admin
+- Admin panel at http://134.122.83.34:8082/admin
 
-- GraphiQL is available at http://http://134.122.83.34:8082/graphql
+- GraphiQL is available at http://134.122.83.34:8082/graphql
 
 - Dataset is used to populate database (https://www.kaggle.com/rounakbanik/the-movies-dataset/data)
 
