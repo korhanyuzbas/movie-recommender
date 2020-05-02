@@ -39,7 +39,7 @@ services:
       - ./src:/home/movierecommender/src/
       - ./docker/etc:/home/movierecommender/etc/
       - ./docker/etc/supervisor/worker.conf:/etc/supervisor/conf.d/worker.conf
-    command: bash -c "supervisord -n"
+    command: "celery worker -A movierecommender --loglevel=INFO"
     environment:
       DJANGO_SETTINGS_MODULE: ${DJANGO_SETTINGS_MODULE:-movierecommender.settings}
     links:

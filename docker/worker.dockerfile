@@ -1,24 +1,10 @@
-FROM ubuntu:bionic
-
-# Update box
-RUN apt-get update -y --force-yes
-RUN apt-get upgrade -y --force-yes
-RUN apt-get install -y --force-yes python3.6 python3-pip python3-dev
-RUN apt-get install -y --force-yes libffi-dev libssl-dev
-RUN apt-get install -y --force-yes libjpeg-dev libjpeg8-dev libpng-dev libfreetype6-dev gettext
-RUN apt-get install -y --force-yes git supervisor apt-transport-https libmysqlclient-dev
-RUN apt-get install -y --force-yes vim build-essential locales
-
-# Set locale
-RUN locale-gen en_US.UTF-8
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
+FROM python:3.8
 
 # Environment (API and PUBLIC)
 ENV PROJECT_ROOT /home/movierecommender
 
 COPY ./requirements.txt $PROJECT_ROOT/
-RUN pip3 install -r $PROJECT_ROOT/requirements.txt
+RUN pip install -r $PROJECT_ROOT/requirements.txt
 
 ADD ./src $PROJECT_ROOT/src/
 ENV DJANGO_SETTINGS_MODULE movierecommender.settings
